@@ -1,18 +1,43 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 
-/* GET home page. */
-router.get('/', (req, res, next)=> {
-  let curretDate = new Date();
-  res.render('index', { 
-    title: 'Home' ,
-    date: curretDate.getHours()
-  });
+// Global Route Variables
+let currentDate = new Date();
+  currentDate = currentDate.toLocaleTimeString();
+
+/* GET home page. wildcard */
+router.get('/', (req, res, next) => {
+  res.render('index', {
+    title: 'Home',
+    
+   });
 });
 
 /* GET about page. */
-router.get('/about', function(req, res, next) {
-  res.render('about', { title: 'About' });
+router.get('/about', (req, res, next) => {
+  res.render('index', {
+    title: 'About'
+   });
+});
+
+/* GET projects page. */
+router.get('/projects', (req, res, next) => {
+  res.render('index', {
+    title: 'Projects'
+   });
+});
+
+/* GET services page. */
+router.get('/services', (req, res, next) => {
+  res.render('index', {
+    title: 'Services'
+   });
+});
+/* GET contact page. */
+router.get('/contact', (req, res, next) => {
+  res.render('index', {
+    title: 'Contact'
+   });
 });
 
 module.exports = router;
